@@ -1,0 +1,19 @@
+# Секреты
+.env
+
+# База данных
+db.sqlite3
+
+# Виртуальное окружение
+.venv/
+venv/
+
+# Кеш Python
+__pycache__/
+*.pyc
+
+# Настройки PyCharm
+.idea/
+
+# Статика
+staticfiles/

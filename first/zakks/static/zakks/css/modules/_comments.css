@@ -1,0 +1,117 @@
+/* ===== КОММЕНТАРИИ ===== */
+.comments-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e1e8ed;
+}
+
+.comments-list {
+    margin-bottom: 10px;
+}
+
+.comment {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.6); /* ⬅️ ПОЛУПРОЗРАЧНЫЙ БЕЛЫЙ */
+    border-radius: 8px;
+    border-left: none;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #ff649a;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.comment-author:hover {
+    color: #ff97c4;
+    text-decoration: underline;
+}
+
+.comment-date {
+    color: #657786;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.comment-text {
+    margin: 5px 0 0 0;
+    color: #14171a;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.comment-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.comment-form textarea {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccd6dd;
+    border-radius: 20px;
+    resize: none;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #ff97c4;
+    box-shadow: 0 0 0 3px rgba(255, 151, 196, 0.25);
+}
+
+.comment-form button {
+    padding: 8px 16px;
+    background-color: #ff649a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+.comment-form button:hover {
+    background-color: #ff97c4;
+}
+
+.comment-login-prompt {
+    color: #657786;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff5f9;
+    border-radius: 8px;
+}
+
+.comment-login-prompt a {
+    color: #ff649a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Кнопка "Показать все комментарии" */
+.show-all-comments {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    background-color: transparent;
+    border: 1px solid #ff649a;
+    color: #ff649a;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.show-all-comments:hover {
+    background-color: #ff649a;
+    color: white;
+}

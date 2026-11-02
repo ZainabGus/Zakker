@@ -1,0 +1,66 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Zakker{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'zakks/css/main.css' %}?v=200">
+</head>
+<body>
+    <!-- Контейнер для уведомлений -->
+    <div id="toast-container" class="toast-container"></div>
+
+
+    <header class="navbar">
+        <nav class="navbar-nav">
+    <!-- Форма поиска -->
+            <form method="GET" action="{% url 'feed' %}" class="search-form">
+                <input type="text" name="search" placeholder="Поиск по заккам..."
+                    value="{{ request.GET.search|default:'' }}" class="search-input">
+                <button type="submit" class="search-btn">🔍</button>
+            </form>
+        </nav>
+        <div>
+            <a href="{% url 'feed' %}" class="navbar-logo">Zakker</a>
+
+            <div class="navbar-user">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'profile' request.user.username %}" class="username-display">
+                        @{{ request.user.username }}
+                    </a>
+                    <form method="POST" action="{% url 'logout' %}"
+                        style="display: inline;"
+                        onsubmit="return confirm('Вы уверены, что хотите выйти?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-logout">Выйти</button>
+
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn-login">Войти</a>
+                    <a href="{% url 'register' %}" class="btn-register">Регистрация</a>
+
+                {% endif %}
+            </div>
+        </div>
+
+    </header>
+
+    <main class="main-content">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="messages {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+    <script src="{% static 'zakks/js/main.js' %}"></script>
+</body>
+</html>

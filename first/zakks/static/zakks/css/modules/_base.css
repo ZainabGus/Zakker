@@ -1,0 +1,122 @@
+/* ===== ОБЩИЕ СТИЛИ ===== */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Isometra&family=Jura:wght@300..700&family=Lobster&family=Pacifico&family=Play:wght@400;700&family=Playpen+Sans:wght@100..800&family=Playwrite+NZ+Basic:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff5f9;
+}
+
+.page-title {
+    font-family: "Isometra", serif;
+    color: #ff97c4;
+    text-align: center;
+    font-size: 32px;
+}
+
+.divider {
+    position: relative;
+    height: 20px;
+    background-color: #ff649a;
+    background-size: 32px 20px;
+    background-position: 0 0, 0 0, -16px 0, 16px 0px;
+    background-image: linear-gradient(35deg, #fff 11px, transparent 0),
+                      linear-gradient(-35deg, #fff 11px, transparent 0),
+                      linear-gradient(-145deg, #fff 11px, transparent 0),
+                      linear-gradient(145deg, #fff 11px, transparent 0);
+}
+
+/* ===== СООБЩЕНИЯ ===== */
+.messages {
+    padding: 12px 20px;
+    margin: 10px 0 20px 0;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.messages.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.messages.error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.messages.info {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}
+
+/* ===== ПУСТОЙ СПИСОК ===== */
+.empty-message {
+    text-align: center;
+    color: #657786;
+    font-size: 18px;
+    padding: 40px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px dashed #ccd6dd;
+}
+
+
+/* ===== ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ (TOAST) ===== */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: #fff5f9;
+    color: #333;
+    border-left: 5px solid #ff649a;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.3s forwards;
+}
+
+/* Анимация появления */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Анимация исчезновения */
+.toast.hide {
+    animation: slideOut 0.3s forwards;
+}
+
+@keyframes slideOut {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .page-title {
+        font-size: 24px;
+    }
+}

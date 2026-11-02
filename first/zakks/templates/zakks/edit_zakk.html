@@ -1,0 +1,27 @@
+{% extends 'zakks/base.html' %}
+
+{% block title %}Редактирование закка — Zakker{% endblock %}
+
+{% block content %}
+
+<div class="zakk-form" style="margin: 0 auto;">
+    <h2 class="form-title">Редактировать закк</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Django сам заполнит поля старыми данными благодаря instance=zakk -->
+        {{ form.as_p }}
+
+        <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <button type="submit" class="submit-btn">Сохранить изменения</button>
+            <!-- Кнопка отмены (просто ссылка назад) -->
+            <a href="{% url 'feed' %}" class="submit-btn"
+               style="background-color: #ccc; text-align: center; text-decoration: none; line-height: 24px;">
+                Отмена
+            </a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

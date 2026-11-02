@@ -1,0 +1,51 @@
+{% extends 'zakks/base.html' %}
+
+{% block title %}Лента — Zakker{% endblock %}
+
+{% block content %}
+
+    <h1 class="page-title">Zakker</h1>
+    <hr class="divider">
+
+    <div class="theme-filter">
+        <a href="{% url 'feed' %}"
+        class="theme-btn {% if current_theme == 'all' %}active{% endif %}">
+            🌼 Все
+        </a>
+
+        {% include 'zakks/_theme_filter.html' %}
+    </div>
+
+    <!-- ===== СОРТИРОВКА ===== -->
+<div class="sort-filter">
+
+    <!-- Ссылка на "Новые" -->
+    <a href="?{% if current_theme != 'all' %}theme={{ current_theme }}&{% endif %}sort=new"
+       class="sort-btn {% if current_sort == 'new' %}active{% endif %}">
+        ✨ Новые
+    </a>
+
+    <!-- Ссылка на "Популярные" -->
+    <a href="?{% if current_theme != 'all' %}theme={{ current_theme }}&{% endif %}sort=popular"
+       class="sort-btn {% if current_sort == 'popular' %}active{% endif %}">
+        🔥 Популярные
+    </a>
+</div>
+
+    <!-- Форма создания закка -->
+    <div style="margin-bottom: 20px; text-align: right;">
+        <a href="{% url 'create_zakk' %}" class="submit-btn" style="display: inline-block; width: auto; text-decoration: none;">
+            ➕ Создать закк
+        </a>
+    </div>
+
+    <!-- Список закков -->
+    {% for zakk in zakks %}
+        {% include 'zakks/_zakk_card.html' %}
+    {% empty %}
+        <div class="empty-message">
+            <p>Закков пока нет. Будьте первым!</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}

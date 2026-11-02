@@ -1,0 +1,71 @@
+{% extends 'zakks/base.html' %}
+
+{% block title %}{{ profile_user.username }} — Zakker{% endblock %}
+
+{% block content %}
+
+<!-- ===== ШАПКА ПРОФИЛЯ ===== -->
+<div class="profile-header">
+
+    <!-- Аватар (первая буква имени) -->
+    <div class="profile-avatar">
+        {{ profile_user.username|first|upper }}
+    </div>
+
+    <!-- Информация о пользователе -->
+    <div class="profile-info">
+        <h1 class="profile-username">@{{ profile_user.username }}</h1>
+        <p class="profile-date">
+            📅 Зарегистрирован: {{ profile_user.date_joined|date:"d.m.Y" }}
+        </p>
+
+        <!-- Статистика -->
+        <div class="profile-stats">
+            <div class="stat">
+                <strong>{{ zakks_count }}</strong>
+                <span>закков</span>
+            </div>
+            <div class="stat">
+                <strong>{{ comments_count }}</strong>
+                <span>комментариев</span>
+            </div>
+            <div class="stat">
+                <strong>{{ likes_count }}</strong>
+                <span>лайков</span>
+            </div>
+        </div>
+                <!-- ⬇️ БЛОК ГЕЙМИФИКАЦИИ ⬇️ -->
+        <div class="gamification-box">
+            <div class="gamification-header">
+                <span class="level-title">🏆 {{ profile_data.get_level }}</span>
+                <span class="xp-text">{{ profile_data.xp }} XP</span>
+            </div>
+            <!-- Прогресс-бар -->
+            <div class="xp-bar-bg">
+                <div class="xp-bar-fill" style="width: {{ profile_data.get_progress_percent }}%;"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== ФИЛЬТР ПО ТЕМАМ ===== -->
+<div class="theme-filter">
+    <a href="{% url 'profile' profile_user.username %}"
+       class="theme-btn {% if current_theme == 'all' %}active{% endif %}">
+        🌼 Все
+    </a>
+
+    {% include 'zakks/_theme_filter.html' %}
+</div>
+
+<!-- ===== СПИСОК ЗАККОВ ===== -->
+{% for zakk in zakks %}
+    {% include 'zakks/_zakk_card.html' %}
+{% empty %}
+    <div class="empty-message">
+        <p>У @{{ profile_user.username }} пока нет закков.</p>
+    </div>
+{% endfor %}
+
+{% endblock %}

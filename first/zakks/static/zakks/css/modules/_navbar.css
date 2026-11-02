@@ -1,0 +1,193 @@
+/* ===== ШАПКА САЙТА ===== */
+/* ===== ШАПКА САЙТА ===== */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 2px solid #ffccde;
+    padding: 12px 0;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(255, 151, 196, 0.1);
+}
+
+.navbar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.navbar-logo {
+    font-family: "Isometra", serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff649a;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.navbar-logo:hover {
+    color: #ff97c4;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-link {
+    color: #14171a;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background-color: #ffe4ee;
+    color: #ff649a;
+}
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.username-display {
+    color: #ff649a;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.username-display:hover {
+    color: #ff97c4;
+    text-decoration: underline;
+}
+
+.btn-nav {
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: #ff649a;
+    border: 2px solid #ff649a;
+}
+
+.btn-login:hover {
+    background-color: #ff649a;
+    color: white;
+}
+
+.btn-register {
+    background-color: #ff649a;
+    color: white;
+}
+
+.btn-register:hover {
+    background-color: #ff97c4;
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: #657786;
+    border: 2px solid #ccd6dd;
+}
+
+.btn-logout:hover {
+    background-color: #ff649a;
+    color: white;
+    border-color: #ff649a;
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 600px) {
+    .navbar-container {
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    .navbar-nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .navbar-logo {
+        font-size: 20px;
+    }
+
+    .username-display {
+        font-size: 13px;
+    }
+
+    .btn-nav {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+
+/* ===== ПОИСК В ШАПКЕ ===== */
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: #fff5f9;
+    border: 2px solid #ffccde;
+    border-radius: 20px;
+    padding: 2px 5px 2px 15px;
+    transition: all 0.2s;
+}
+
+.search-form:focus-within {
+    border-color: #ff649a;
+    box-shadow: 0 0 0 3px rgba(255, 151, 196, 0.2);
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    width: 200px;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #ff97c4;
+}
+
+.search-btn {
+    background-color: #ff649a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+    background-color: #ff97c4;
+}

@@ -1,0 +1,73 @@
+/* ===== ФИЛЬТР ПО ТЕМАМ ===== */
+.theme-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 151, 196, 0.1);
+}
+
+.theme-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #ffccde;
+    color: #14171a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.theme-btn:hover {
+    background-color: #ffbbd3;
+    transform: translateY(-2px);
+}
+
+.theme-btn.active {
+    background-color: #ff97c4;
+    color: white;
+    border-color: #ffbbd3;
+}
+
+
+/* ===== СОРТИРОВКА ===== */
+.sort-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding: 0 15px;
+}
+
+.sort-label {
+    font-size: 14px;
+    color: #657786;
+    font-weight: 500;
+}
+
+.sort-btn {
+    padding: 6px 14px;
+    border-radius: 15px;
+    background-color: transparent;
+    color: #ff649a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #ffccde;
+    transition: all 0.2s;
+}
+
+.sort-btn:hover {
+    background-color: #ffe4ee;
+}
+
+.sort-btn.active {
+    background-color: #ff649a;
+    color: white;
+    border-color: #ff649a;
+}

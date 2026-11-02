@@ -1,0 +1,115 @@
+<!-- Карточка закка (общая для главной и профиля) -->
+{% load zakk_extras %}
+
+<div class="zakk-item theme-{{ zakk.theme }}" id="zakk-{{ zakk.id }}">
+    <div class="zakk-header">
+        <a href="{% url 'profile' zakk.user.username %}" class="username">
+            @{{ zakk.user.username }}
+        </a>
+        <span class="date">• {{ zakk.created_at|date:"d.m.Y H:i:s" }}</span>
+    </div>
+
+    {% if zakk.theme != 'other' %}
+        <div class="zakk-theme">
+            {{ zakk.get_theme_display }}
+        </div>
+    {% endif %}
+
+    {% if zakk.title %}
+        <h4 class="zakk-title">{{ zakk.title }}</h4>
+    {% endif %}
+
+    <p class="zakk-content">{{ zakk.content }}</p>
+
+    <div class="zakk-actions">
+        <button
+            id="like-btn-{{ zakk.id }}"
+            class="like-btn {% if zakk|is_liked_by:request.user %}liked{% endif %}"
+            onclick="toggleLike({{ zakk.id }})"
+            type="button"
+        >
+            {% if zakk|is_liked_by:request.user %}❤️{% else %}🤍{% endif %}
+        </button>
+        <span id="like-count-{{ zakk.id }}" class="like-count">
+            {{ zakk.likes.count }}
+        </span>
+
+                <!-- ⬇️ Кнопки управления (только для автора) -->
+        {% if zakk.user == request.user %}
+            <div style="margin-left: auto; display: flex; gap: 5px;">
+                <!-- Кнопка редактирования (это просто ссылка!) -->
+                <a href="{% url 'edit_zakk' zakk.id %}" class="delete-btn" title="Редактировать" style="text-decoration: none;">
+                    ✏️
+                </a>
+
+                <!-- Кнопка удаления (форма) -->
+                <form method="POST" action="{% url 'delete_zakk' zakk.id %}"
+                      style="display: inline;"
+                      onsubmit="return confirm('Точно удалить этот закк?');">
+                    {% csrf_token %}
+                    <input type="hidden" name="current_theme" value="{{ current_theme }}">
+                    <button type="submit" class="delete-btn" title="Удалить закк">
+                        🗑️
+                    </button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- ===== КОММЕНТАРИИ ===== -->
+    <div class="comments-section">
+
+        <!-- Список комментариев (первые 2) -->
+        {% if zakk.comments.all %}
+            <div class="comments-list">
+                {% for comment in zakk.comments.all|slice:":2" %}
+                    <div class="comment">
+                        <a href="{% url 'profile' comment.user.username %}" class="comment-author">
+                            @{{ comment.user.username }}
+                        </a>
+                        <span class="comment-date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+                        <p class="comment-text">{{ comment.text }}</p>
+                    </div>
+                {% endfor %}
+
+                <!-- Скрытые комментарии -->
+                {% if zakk.comments.count > 2 %}
+                    <div class="comments-hidden" id="hidden-comments-{{ zakk.id }}" style="display: none;">
+                        {% for comment in zakk.comments.all|slice:"2:" %}
+                            <div class="comment">
+                                <a href="{% url 'profile' comment.user.username %}" class="comment-author">
+                                    @{{ comment.user.username }}
+                                </a>
+                                <span class="comment-date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+                                <p class="comment-text">{{ comment.text }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <button class="show-all-comments" onclick="toggleComments({{ zakk.id }})">
+                        Показать все комментарии ({{ zakk.comments.count }})
+                    </button>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <!-- Форма добавления комментария -->
+        {% if request.user.is_authenticated %}
+            <form method="POST" class="comment-form">
+                {% csrf_token %}
+                <input type="hidden" name="zakk_id" value="{{ zakk.id }}">
+                <input type="hidden" name="current_theme" value="{{ current_theme }}">
+                <textarea name="comment_text"
+                          placeholder="Написать комментарий..."
+                          rows="1"
+                          required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        {% else %}
+            <p class="comment-login-prompt">
+                <a href="{% url 'login' %}">Войдите</a>, чтобы оставить комментарий
+            </p>
+        {% endif %}
+
+    </div>
+</div>

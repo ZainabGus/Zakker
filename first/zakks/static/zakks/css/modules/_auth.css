@@ -1,0 +1,28 @@
+/* ===== СТРАНИЦЫ ВХОДА/РЕГИСТРАЦИИ ===== */
+.auth-page {
+    background: linear-gradient(135deg, #ffe4ee 0%, #fff5f9 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-logo {
+    display: block;
+    text-align: center;
+    font-family: "Isometra", serif;
+    color: #ff97c4;
+    font-size: 32px;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.auth-logo:hover {
+    color: #ff97c4;
+}

@@ -1,0 +1,54 @@
+/* ===== ТЕМЫ ЗАККОВ ===== */
+
+/* Цветная полоска слева */
+.zakk-item.theme-math { border-left-color: #3498db; }
+.zakk-item.theme-philosophy { border-left-color: #9b59b6; }
+.zakk-item.theme-it { border-left-color: #ebff98; }
+.zakk-item.theme-art { border-left-color: #e74c3c; }
+.zakk-item.theme-literature { border-left-color: #ffbd99; }
+.zakk-item.theme-history { border-left-color: #ffe348; }
+.zakk-item.theme-physics { border-left-color: #16a085; }
+.zakk-item.theme-chemistry { border-left-color: #00eec9; }
+.zakk-item.theme-biology { border-left-color: #27ae60; }
+.zakk-item.theme-music { border-left-color: #e91e63; }
+.zakk-item.theme-sport { border-left-color: #ff9800; }
+.zakk-item.theme-other { border-left-color: #95a5a6; }
+
+/* Цвет фона поста в зависимости от темы */
+.zakk-item.theme-math { background-color: #eef3ff; }
+.zakk-item.theme-philosophy { background-color: #f1eeff; }
+.zakk-item.theme-it { background-color: #feffcb; }
+.zakk-item.theme-art { background-color: #ffdedd; }
+.zakk-item.theme-literature { background-color: #ffe9dd; }
+.zakk-item.theme-history { background-color: #fffadd; }
+.zakk-item.theme-physics { background-color: #d1f2eb; }
+.zakk-item.theme-chemistry { background-color: #ddfffa; }
+.zakk-item.theme-biology { background-color: #d5f5e3; }
+.zakk-item.theme-music { background-color: #fce4ec; }
+.zakk-item.theme-sport { background-color: #fff3e0; }
+.zakk-item.theme-other { background-color: #f0f0f0; }
+
+/* Плашка с темой */
+.zakk-theme {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 8px 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.theme-math .zakk-theme { background-color: #bbd0ff; color: #1b4f72; }
+.theme-philosophy .zakk-theme { background-color: #ebdef0; color: #4a235a; }
+.theme-it .zakk-theme { background-color: #ebff99; color: #145a32; }
+.theme-art .zakk-theme { background-color: #ff9b99; color: #78281f; }
+.theme-literature .zakk-theme { background-color: #ffbd99; color: #4a235a; }
+.theme-history .zakk-theme { background-color: #ffe348; color: #7e5109; }
+.theme-physics .zakk-theme { background-color: #16a085; color: #0e6251; }
+.theme-chemistry .zakk-theme { background-color: #00eec9; color: #78281f; }
+.theme-biology .zakk-theme { background-color: #d5f5e3; color: #145a32; }
+.theme-music .zakk-theme { background-color: #fce4ec; color: #880e4f; }
+.theme-sport .zakk-theme { background-color: #fff3e0; color: #e65100; }
+.theme-other .zakk-theme { background-color: #f0f0f0; color: #333; }

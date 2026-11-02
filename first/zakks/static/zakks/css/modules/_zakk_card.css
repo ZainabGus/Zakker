@@ -1,0 +1,138 @@
+/* ===== КАРТОЧКА ЗАККА ===== */
+.zakk-item {
+    border: 1px solid #e1e8ed;
+    border-left: 5px solid #95a5a6;  /* базовая полоска (перезапишется темой) */
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.zakk-item:hover {
+    box-shadow: 0 2px 12px rgba(255, 151, 196, 0.15);
+    border-color: #ff97c4;
+}
+
+.zakk-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.username {
+    font-weight: bold;
+    color: #ff649a;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.username:hover {
+    color: #ff97c4;
+    text-decoration: underline;
+}
+
+.date {
+    color: #657786;
+    font-size: 14px;
+}
+
+.zakk-title {
+    margin: 8px 0 5px 0;
+    color: #14171a;
+    font-size: 18px;
+}
+
+.zakk-content {
+    margin: 5px 0 0 0;
+    color: #14171a;
+    line-height: 1.6;
+    font-size: 15px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
+@media (max-width: 600px) {
+    .zakk-item {
+        padding: 12px 15px;
+    }
+    .zakk-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+}
+
+/* ===== ЛАЙКИ ===== */
+.zakk-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #ffe4ee;
+}
+
+.like-btn {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.like-btn:hover {
+    transform: scale(1.15);
+}
+
+.like-btn:active {
+    transform: scale(0.95);
+}
+
+.like-btn.liked {
+    animation: heartBeat 0.3s ease-in-out;
+}
+
+.like-count {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ff649a;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+
+/* ===== КНОПКА УДАЛЕНИЯ ===== */
+.delete-btn {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    line-height: 1;
+    opacity: 0.5;
+    color: inherit;          /* Чтобы ссылка не была синей */
+    display: inline-block;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.delete-btn:active {
+    transform: scale(0.95);
+}

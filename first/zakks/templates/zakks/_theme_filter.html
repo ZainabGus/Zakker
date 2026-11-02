@@ -1,0 +1,7 @@
+<!-- Кнопки тем (общие для главной и профиля) -->
+{% for key, label in themes %}
+    <a href="?theme={{ key }}"
+       class="theme-btn {% if current_theme == key %}active{% endif %}">
+        {{ label }}
+    </a>
+{% endfor %}

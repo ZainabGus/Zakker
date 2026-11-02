@@ -1,0 +1,26 @@
+{% extends 'zakks/base_auth.html' %}
+
+{% block title %}Регистрация — Zakker{% endblock %}
+
+{% block content %}
+
+    <h1 class="page-title">Регистрация</h1>
+
+    <div class="zakk-form auth-form">
+        <h3 class="form-title">Создайте аккаунт</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-btn">Зарегистрироваться</button>
+        </form>
+
+        <p style="margin-top: 15px; text-align: center;">
+            Уже есть аккаунт?
+            <a href="{% url 'login' %}" style="color: #1da1f2; text-decoration: none;">
+                Войдите
+            </a>
+        </p>
+    </div>
+
+{% endblock %}

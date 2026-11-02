@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Zakker{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'zakks/css/main.css' %}?v=999">
+</head>
+<body class="auth-page">
+
+   <div class="auth-container">
+        <!-- Логотип -->
+        <a href="{% url 'feed' %}" class="auth-logo">Zakker</a>
+
+        <!-- Сообщения -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="messages {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Контент страницы (форма входа) -->
+        {% block content %}{% endblock %}
+
+    </div>
+
+    <script src="{% static 'zakks/js/main.js' %}"></script>
+
+</body>
+</html>

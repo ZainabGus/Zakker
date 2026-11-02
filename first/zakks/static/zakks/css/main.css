@@ -1,0 +1,13 @@
+/* ===== ГЛАВНЫЙ ФАЙЛ СТИЛЕЙ ===== */
+/* Подключает все модули через @import */
+
+@import 'modules/_base.css';
+@import 'modules/_navbar.css';
+@import 'modules/_forms.css';
+@import 'modules/_zakk_card.css';
+@import 'modules/_themes.css';
+@import 'modules/_comments.css';
+@import 'modules/_filter.css';
+@import 'modules/_auth.css';
+@import 'modules/_profile.css';
+@import 'modules/_gamification.css';
